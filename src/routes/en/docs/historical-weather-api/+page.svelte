@@ -114,7 +114,7 @@
 			{ name: 'sunrise', label: 'Sunrise' },
 			{ name: 'sunset', label: 'Sunset' },
 			{ name: 'daylight_duration', label: 'Daylight Duration' },
-			{ name: 'sunshine_duration', label: 'Sunshine Duration' },
+			{ name: 'sunshine_duration', label: 'Sunshine Duration' }
 		],
 		[
 			{ name: 'precipitation_sum', label: 'Precipitation Sum' },
@@ -140,7 +140,12 @@
 		]);
 	}
 
-	const additionalVariables = [[{ name: 'is_day', label: 'Is Day or Night' }, { name: 'sunshine_duration', label: 'Sunshine Duration' }]];
+	const additionalVariables = [
+		[
+			{ name: 'is_day', label: 'Is Day or Night' },
+			{ name: 'sunshine_duration', label: 'Sunshine Duration' }
+		]
+	];
 
 	const solarVariables = [
 		[
@@ -163,7 +168,8 @@
 		[
 			{ name: 'best_match', label: 'Best match', caption: 'ECMWF IFS & ERA5' },
 			{ name: 'ecmwf_ifs', label: 'ECMWF IFS', caption: '9 km, Global, 2017 onwards' }
-		],[
+		],
+		[
 			{ name: 'era5_seamless', label: 'ERA5-Seamless', caption: 'ERA5 & ERA5-Land combined' },
 			{ name: 'era5', label: 'ERA5', caption: '25 km, Global' },
 			{ name: 'era5_land', label: 'ERA5-Land', caption: '10 km, Global' },
@@ -182,13 +188,14 @@
 </svelte:head>
 
 <div class="alert alert-primary" role="alert">
-	Now, with the addition of the 9-kilometer ECMWF IFS model, the historical weather API provides access to a staggering 90 terabytes of meteorological data! Read the <a
+	Now, with the addition of the 9-kilometer ECMWF IFS model, the historical weather API provides
+	access to a staggering 90 terabytes of meteorological data! Read the <a
 		href="https://open.substack.com/pub/openmeteo/p/processing-90-tb-historical-weather"
 		target="_blank">blog article</a
 	>.
 </div>
 
-<form method="get" action="https://archive-api.open-meteo.com/v1/archive">
+<form method="get" action="https://archive-climapiv2.biovision.digital/v1/archive">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -381,9 +388,9 @@
 			</div>
 		{/each}
 		{#if timezoneInvalid}
-		<div class="alert alert-warning" role="alert">
-			It is recommended to select a timezone for daily data. Per default the API will use GMT+0.
-		</div>
+			<div class="alert alert-warning" role="alert">
+				It is recommended to select a timezone for daily data. Per default the API will use GMT+0.
+			</div>
 		{/if}
 	</div>
 
@@ -456,7 +463,14 @@
 	<LicenseSelector requires_professional_plan={true} />
 </form>
 
-<ResultPreview {params} {defaultParameter} type="archive" action="archive" sdk_cache={-1} useStockChart={true} />
+<ResultPreview
+	{params}
+	{defaultParameter}
+	type="archive"
+	action="archive"
+	sdk_cache={-1}
+	useStockChart={true}
+/>
 
 <h2 id="data-sources" class="mt-5">Data Sources</h2>
 <div class="row">
@@ -470,20 +484,23 @@
 			stations nearby, such as rural areas or the open ocean.
 		</p>
 		<p>
-			The models for historical weather data use a spatial resolution of 9 km to resolve fine details 
-			close to coasts or complex mountain terrain. In general, a higher spatial resolution means that the data is
-			more detailed and represents the weather conditions more accurately at smaller scales.
+			The models for historical weather data use a spatial resolution of 9 km to resolve fine
+			details close to coasts or complex mountain terrain. In general, a higher spatial resolution
+			means that the data is more detailed and represents the weather conditions more accurately at
+			smaller scales.
 		</p>
 	</div>
 	<div class="col-6">
 		<p>
-			The ECMWF IFS dataset has been meticulously assembled by Open-Meteo using simulation runs at 0z and 12z, 
-			employing the most up-to-date version of IFS. This dataset offers the utmost resolution and precision 
-			in depicting historical weather conditions.
+			The ECMWF IFS dataset has been meticulously assembled by Open-Meteo using simulation runs at
+			0z and 12z, employing the most up-to-date version of IFS. This dataset offers the utmost
+			resolution and precision in depicting historical weather conditions.
 		</p>
-		<p>However, when studying climate change over decades, it is advisable to exclusively utilize ERA5 or ERA5-Land. 
-			This choice ensures data consistency and prevents unintentional alterations that could arise from the adoption 
-			of different weather model upgrades.</p>
+		<p>
+			However, when studying climate change over decades, it is advisable to exclusively utilize
+			ERA5 or ERA5-Land. This choice ensures data consistency and prevents unintentional alterations
+			that could arise from the adoption of different weather model upgrades.
+		</p>
 		<p>
 			You can access data dating back to 1940 with a delay of 2 days. If you're looking for weather
 			information from the previous day, our <a
@@ -879,7 +896,10 @@
 					<th scope="row">sunshine_duration</th>
 					<td>Preceding hour sum</td>
 					<td>Seconds</td>
-					<td>Number of seconds of sunshine of the preceding hour per hour calculated by direct normalized irradiance exceeding 120 W/m², following the WMO definition.</td>
+					<td
+						>Number of seconds of sunshine of the preceding hour per hour calculated by direct
+						normalized irradiance exceeding 120 W/m², following the WMO definition.</td
+					>
 				</tr>
 				<tr>
 					<th scope="row">wind_speed_10m<br />wind_speed_100m</th>
@@ -1035,7 +1055,11 @@
 				<tr>
 					<th scope="row">sunshine_duration</th>
 					<td>seconds</td>
-					<td>The number of seconds of sunshine per day is determined by calculating direct normalized irradiance exceeding 120 W/m², following the WMO definition. Sunshine duration will consistently be less than daylight duration due to dawn and dusk.</td>
+					<td
+						>The number of seconds of sunshine per day is determined by calculating direct
+						normalized irradiance exceeding 120 W/m², following the WMO definition. Sunshine
+						duration will consistently be less than daylight duration due to dawn and dusk.</td
+					>
 				</tr>
 				<tr>
 					<th scope="row">daylight_duration</th>

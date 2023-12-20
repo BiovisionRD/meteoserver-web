@@ -37,7 +37,7 @@
 		hourly: ['temperature_2m'],
 		models: ['icon_seamless']
 	});
-	
+
 	const icon_global_variables = [
 		'weather_code',
 		'temperature_2m',
@@ -103,7 +103,7 @@
 		'temperature_500hPa',
 		'temperature_850hPa',
 		'geopotential_height_500hPa',
-		'geopotential_height_850hPa',
+		'geopotential_height_850hPa'
 	];
 
 	const gfs025_variables = [
@@ -157,7 +157,7 @@
 		'temperature_500hPa',
 		'temperature_850hPa',
 		'geopotential_height_500hPa',
-		'geopotential_height_850hPa',
+		'geopotential_height_850hPa'
 	];
 
 	let available_variables = {
@@ -189,7 +189,7 @@
 			'temperature_500hPa',
 			'temperature_850hPa',
 			'geopotential_height_500hPa',
-			'geopotential_height_850hPa',
+			'geopotential_height_850hPa'
 		],
 		gem_global: [
 			'temperature_2m',
@@ -214,7 +214,7 @@
 			'temperature_500hPa',
 			'temperature_850hPa',
 			'geopotential_height_500hPa',
-			'geopotential_height_850hPa',
+			'geopotential_height_850hPa'
 		]
 	};
 
@@ -286,7 +286,7 @@
 			{ name: 'temperature_500hPa', label: 'Temperature (500 hPa)' },
 			{ name: 'temperature_850hPa', label: 'Temperature (850 hPa)' },
 			{ name: 'geopotential_height_500hPa', label: 'Geopotential Height (500 hPa)' },
-			{ name: 'geopotential_height_850hPa', label: 'Geopotential Height (850 hPa)' },
+			{ name: 'geopotential_height_850hPa', label: 'Geopotential Height (850 hPa)' }
 			//{ name: 'is_day', label: 'Is Day or Night' }
 		],
 		[
@@ -344,7 +344,7 @@
 	>.
 </div>
 
-<form method="get" action="https://ensemble-api.open-meteo.com/v1/ensemble">
+<form method="get" action="https://ensemble-climapiv2.biovision.digital/v1/ensemble">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -368,7 +368,7 @@
 						role="tab"
 						aria-controls="pills-forecast_days"
 						aria-selected="true"
-						on:click={() => ($params.time_mode = 'forecast_days')}><Clock/> Forecast Length</button
+						on:click={() => ($params.time_mode = 'forecast_days')}><Clock /> Forecast Length</button
 					>
 				</li>
 				<li class="nav-item" role="presentation">
@@ -380,7 +380,7 @@
 						role="tab"
 						aria-controls="pills-time_interval"
 						on:click={() => ($params.time_mode = 'time_interval')}
-						aria-selected="true"><CalendarEvent/> Time Interval</button
+						aria-selected="true"><CalendarEvent /> Time Interval</button
 					>
 				</li>
 			</ul>
@@ -453,7 +453,7 @@
 				>
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date}/>
+							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date} />
 						</div>
 					</div>
 				</div>
@@ -530,7 +530,11 @@
 				{/each}
 				<div class="col-md-12 mb-3">
 					<small class="text-muted"
-						>Note: You can further adjust the forecast time range for hourly weather variables using <mark>&forecast_hours=</mark> and <mark>&past_hours=</mark> as shown below.
+						>Note: You can further adjust the forecast time range for hourly weather variables using <mark
+							>&forecast_hours=</mark
+						>
+						and <mark>&past_hours=</mark> as shown below.
+					</small>
 				</div>
 				<div class="col-md-3">
 					<div class="form-floating mb-3">
@@ -671,7 +675,13 @@
 	<LicenseSelector requires_professional_plan={true} />
 </form>
 
-<ResultPreview {params} {defaultParameter} type="ensemble" action="ensemble" sdk_type="ensemble_api"/>
+<ResultPreview
+	{params}
+	{defaultParameter}
+	type="ensemble"
+	action="ensemble"
+	sdk_type="ensemble_api"
+/>
 
 <div class="col-12 py-5">
 	<h2 id="data-sources">Data Source</h2>
@@ -803,11 +813,11 @@
 				<td>Yes</td>
 				<td />
 				<td
-						>Geographical WGS84 coordinates of the location. Multiple coordinates can be comma
-						separated. E.g. <mark>&latitude=52.52,48.85&longitude=13.41,2.35</mark>. To return data
-						for multiple locations the JSON output changes to a list of structures. CSV and XLSX
-						formats add a column <mark>location_id</mark>.</td
-					>
+					>Geographical WGS84 coordinates of the location. Multiple coordinates can be comma
+					separated. E.g. <mark>&latitude=52.52,48.85&longitude=13.41,2.35</mark>. To return data
+					for multiple locations the JSON output changes to a list of structures. CSV and XLSX
+					formats add a column <mark>location_id</mark>.</td
+				>
 			</tr>
 			<tr>
 				<th scope="row">models</th>
@@ -919,11 +929,17 @@
 				<td>Per default, only 7 days are returned. Up to 35 days of forecast are possible.</td>
 			</tr>
 			<tr>
-				<th scope="row">forecast_hours<br />forecast_minutely_15<br />past_hours<br />past_minutely_15</th>
+				<th scope="row"
+					>forecast_hours<br />forecast_minutely_15<br />past_hours<br />past_minutely_15</th
+				>
 				<td>Integer (&gt;0)</td>
 				<td>No</td>
 				<td></td>
-				<td>Similar to forecast_days, the number of timesteps of hourly and 15-minutely data can controlled. Instead of using the current day as a reference, the current hour or the current 15-minute time-step is used. </td>
+				<td
+					>Similar to forecast_days, the number of timesteps of hourly and 15-minutely data can
+					controlled. Instead of using the current day as a reference, the current hour or the
+					current 15-minute time-step is used.
+				</td>
 			</tr>
 			<tr>
 				<th scope="row">start_date<br />end_date</th>
@@ -941,7 +957,8 @@
 				<td>No</td>
 				<td />
 				<td
-					>The time interval to get weather data for hourly or 15 minutely data. Time must be specified as an ISO8601 date (e.g.
+					>The time interval to get weather data for hourly or 15 minutely data. Time must be
+					specified as an ISO8601 date (e.g.
 					<mark>2022-06-30T12:00</mark>).
 				</td>
 			</tr>
@@ -1102,7 +1119,10 @@
 				<th scope="row">sunshine_duration</th>
 				<td>Preceding hour sum</td>
 				<td>Seconds</td>
-				<td>Number of seconds of sunshine of the preceding hour per hour calculated by direct normalized irradiance exceeding 120 W/m², following the WMO definition.</td>
+				<td
+					>Number of seconds of sunshine of the preceding hour per hour calculated by direct
+					normalized irradiance exceeding 120 W/m², following the WMO definition.</td
+				>
 			</tr>
 			<tr>
 				<th scope="row">vapour_pressure_deficit</th>

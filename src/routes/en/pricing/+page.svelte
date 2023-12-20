@@ -278,7 +278,7 @@
 				</p>
 				<p>
 					To differentiate between the two, the customer API uses distinct domains such as <mark
-						>customer-api.open-meteo.com</mark
+						>customer-climapiv2.biovision.digital</mark
 					>
 					and includes API keys in the URL, denoted as <mark>&apikey=abc123</mark>. Apart from these
 					variations, the syntax of the customer API remains identical to the free API.

@@ -3,11 +3,7 @@
 	import type { GeoLocation } from '$lib/stores';
 	import ResultPreview from '../ResultPreview.svelte';
 	import { urlHashStore } from '$lib/url-hash-store';
-	import {
-		altitudeAboveSeaLevelMeters,
-		countPressureVariables,
-		sliceIntoChunks
-	} from '$lib/meteo';
+	import { altitudeAboveSeaLevelMeters, countPressureVariables, sliceIntoChunks } from '$lib/meteo';
 	import AccordionItem from '$lib/Elements/AccordionItem.svelte';
 	import { fade } from 'svelte/transition';
 	import CalendarEvent from 'svelte-bootstrap-icons/lib/CalendarEvent.svelte';
@@ -27,7 +23,7 @@
 		forecast_days: '10',
 		start_date: '',
 		end_date: '',
-		time_mode: 'forecast_days',
+		time_mode: 'forecast_days'
 	};
 
 	const params = urlHashStore({
@@ -39,12 +35,12 @@
 
 	const pressureVariables = [
 		{ name: 'temperature', label: 'Temperature' },
-		{ name: 'relative_humidity', label: 'Relative Humidity' }, 
+		{ name: 'relative_humidity', label: 'Relative Humidity' },
 		//{ name: 'specific_humidity', label: 'Specific Humidity' },
 		{ name: 'cloud_cover', label: 'Cloud cover' },
 		{ name: 'windspeed', label: 'Wind Speed' },
 		{ name: 'winddirection', label: 'Wind Direction' },
-		{ name: 'geopotential_height', label: 'Geopotential Height' },
+		{ name: 'geopotential_height', label: 'Geopotential Height' }
 		//{ name: 'atmosphere_relative_vorticity', label: 'Relative Vorticity' },
 		//{ name: 'divergence_of_wind', label: 'Divergence of Wind' }
 	];
@@ -103,7 +99,7 @@
 	>, which combines weather models up to 1 km resolution seamlessly.
 </div>
 
-<form method="get" action="https://api.open-meteo.com/v1/ecmwf">
+<form method="get" action="https://climapiv2.biovision.digital/v1/ecmwf">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -126,7 +122,7 @@
 						role="tab"
 						aria-controls="pills-forecast_days"
 						aria-selected="true"
-						on:click={() => ($params.time_mode = 'forecast_days')}><Clock/> Forecast Length</button
+						on:click={() => ($params.time_mode = 'forecast_days')}><Clock /> Forecast Length</button
 					>
 				</li>
 				<li class="nav-item" role="presentation">
@@ -138,7 +134,7 @@
 						role="tab"
 						aria-controls="pills-time_interval"
 						on:click={() => ($params.time_mode = 'time_interval')}
-						aria-selected="true"><CalendarEvent/> Time Interval</button
+						aria-selected="true"><CalendarEvent /> Time Interval</button
 					>
 				</li>
 			</ul>
@@ -209,7 +205,7 @@
 				>
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date}/>
+							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date} />
 						</div>
 					</div>
 				</div>

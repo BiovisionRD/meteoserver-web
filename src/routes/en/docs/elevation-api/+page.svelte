@@ -28,16 +28,16 @@
 		$params.longitude = $params.longitude.toSpliced(index, 1);
 	}
 
-	let base = 'https://api.open-meteo.com/v1/elevation?';
+	let base = 'https://climapiv2.biovision.digital/v1/elevation?';
 	$: switch ($api_key_preferences.use) {
 		case 'commercial':
-			base = `https://customer-api.open-meteo.com/v1/elevation?apikey=${$api_key_preferences.apikey}&`;
+			base = `https://customer-climapiv2.biovision.digital/v1/elevation?apikey=${$api_key_preferences.apikey}&`;
 			break;
 		case 'self_hosted':
 			base = `${$api_key_preferences.self_host_server}/v1/elevation?`;
 			break;
 		default:
-			base = 'https://api.open-meteo.com/v1/elevation?';
+			base = 'https://climapiv2.biovision.digital/v1/elevation?';
 	}
 
 	let response = `{"elevation":[38.0]}`;
@@ -72,7 +72,7 @@
 	id="elevation_form"
 	method="get"
 	target="container"
-	action="https://api.open-meteo.com/v1/elevation"
+	action="https://climapiv2.biovision.digital/v1/elevation"
 >
 	<div class="row">
 		<h2>Select Coordinates or City</h2>
@@ -189,7 +189,7 @@
 						>
 						separated. Up to 100 coordinates can be requested at once. Example for
 						<a
-							href="https://api.open-meteo.com/v1/elevation?latitude=52.52,48.85&longitude=13.41,2.35"
+							href="https://climapiv2.biovision.digital/v1/elevation?latitude=52.52,48.85&longitude=13.41,2.35"
 							target="_blank">multiple coordinates</a
 						>.
 					</td>

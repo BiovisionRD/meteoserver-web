@@ -96,7 +96,7 @@
 			{ name: 'european_aqi_pm10', label: 'European AQI PM<sub>10</sub>' },
 			{ name: 'european_aqi_nitrogen_dioxide', label: 'European AQI NO<sub>2</sub>' },
 			{ name: 'european_aqi_ozone', label: 'European AQI O<sub>3</sub>' },
-			{ name: 'european_aqi_sulphur_dioxide', label: 'European AQI SO<sub>2</sub>' },
+			{ name: 'european_aqi_sulphur_dioxide', label: 'European AQI SO<sub>2</sub>' }
 		]
 	];
 
@@ -122,7 +122,7 @@
 	/>
 </svelte:head>
 
-<form method="get" action="https://air-quality-api.open-meteo.com/v1/air-quality">
+<form method="get" action="https://air-quality-climapiv2.biovision.digital/v1/air-quality">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -146,7 +146,7 @@
 						role="tab"
 						aria-controls="pills-forecast_days"
 						aria-selected="true"
-						on:click={() => ($params.time_mode = 'forecast_days')}><Clock/> Forecast Length</button
+						on:click={() => ($params.time_mode = 'forecast_days')}><Clock /> Forecast Length</button
 					>
 				</li>
 				<li class="nav-item" role="presentation">
@@ -158,7 +158,7 @@
 						role="tab"
 						aria-controls="pills-time_interval"
 						on:click={() => ($params.time_mode = 'time_interval')}
-						aria-selected="true"><CalendarEvent/> Time Interval</button
+						aria-selected="true"><CalendarEvent /> Time Interval</button
 					>
 				</li>
 			</ul>
@@ -228,7 +228,7 @@
 				>
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date}/>
+							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date} />
 						</div>
 					</div>
 				</div>
@@ -528,13 +528,14 @@
 					</div>
 				</div>
 			</AccordionItem>
-			<AccordionItem
-				id="additional-variables"
-				title="Additional Options"
-			>
+			<AccordionItem id="additional-variables" title="Additional Options">
 				<div class="col-md-12 mb-3">
 					<small class="text-muted"
-						>Note: You can further adjust the forecast time range for hourly weather variables using <mark>&forecast_hours=</mark> and <mark>&past_hours=</mark> as shown below.
+						>Note: You can further adjust the forecast time range for hourly weather variables using <mark
+							>&forecast_hours=</mark
+						>
+						and <mark>&past_hours=</mark> as shown below.
+					</small>
 				</div>
 				<div class="col-md-3">
 					<div class="form-floating mb-3">
@@ -635,7 +636,13 @@
 	<LicenseSelector />
 </form>
 
-<ResultPreview {params} {defaultParameter} type="air-quality" action="air-quality" sdk_type="air_quality_api"/>
+<ResultPreview
+	{params}
+	{defaultParameter}
+	type="air-quality"
+	action="air-quality"
+	sdk_type="air_quality_api"
+/>
 
 <div class="col-12 py-5">
 	<h2 id="api-documentation">API Documentation</h2>
@@ -758,7 +765,10 @@
 					<td>Integer (&gt;0)</td>
 					<td>No</td>
 					<td></td>
-					<td>Similar to forecast_days, the number of timesteps of hourly data can controlled. Instead of using the current day as a reference, the current hour is used. </td>
+					<td
+						>Similar to forecast_days, the number of timesteps of hourly data can controlled.
+						Instead of using the current day as a reference, the current hour is used.
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">start_date<br />end_date</th>
@@ -776,7 +786,8 @@
 					<td>No</td>
 					<td />
 					<td
-						>The time interval to get weather data for hourly data. Time must be specified as an ISO8601 date (e.g.
+						>The time interval to get weather data for hourly data. Time must be specified as an
+						ISO8601 date (e.g.
 						<mark>2022-06-30T12:00</mark>).
 					</td>
 				</tr>
@@ -894,8 +905,9 @@
 				</tr>
 				<tr>
 					<th scope="row">
-						european_aqi<br />european_aqi_pm2_5<br />european_aqi_pm10<br />european_aqi_nitrogen_dioxide<br
-						/>european_aqi_ozone<br />european_aqi_sulphur_dioxide
+						european_aqi<br />european_aqi_pm2_5<br />european_aqi_pm10<br
+						/>european_aqi_nitrogen_dioxide<br />european_aqi_ozone<br
+						/>european_aqi_sulphur_dioxide
 					</th>
 					<td>Instant</td>
 					<td>European AQI</td>
@@ -908,8 +920,8 @@
 				</tr>
 				<tr>
 					<th scope="row">
-						us_aqi<br />us_aqi_pm2_5<br />us_aqi_pm10<br />us_aqi_nitrogen_dioxide<br />us_aqi_ozone<br
-						/>us_aqi_sulphur_dioxide<br />us_aqi_carbon_monoxide
+						us_aqi<br />us_aqi_pm2_5<br />us_aqi_pm10<br />us_aqi_nitrogen_dioxide<br
+						/>us_aqi_ozone<br />us_aqi_sulphur_dioxide<br />us_aqi_carbon_monoxide
 					</th>
 					<td>Instant</td>
 					<td>U.S. AQI</td>

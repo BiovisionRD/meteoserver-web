@@ -5,7 +5,7 @@
 	import { convertUnit, getWeatherCode, range } from '$lib/meteo';
 
 	let location: GeoLocation = defaultLocation;
-	let weatherModel = "best_match";
+	let weatherModel = 'best_match';
 
 	$: weather = (async (location: GeoLocation) => {
 		const params = {
@@ -20,7 +20,7 @@
 			daily:
 				'weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant'
 		};
-		const url = 'https://api.open-meteo.com/v1/forecast';
+		const url = 'https://climapiv2.biovision.digital/v1/forecast';
 		const responses = await fetchWeatherApi(url, params);
 		const response = responses[0];
 		const current = response.current()!;
@@ -42,7 +42,7 @@
 				),
 				precipitation: minutely.variables(0)!,
 				temperature_2m: minutely.variables(1)!,
-				windspeed_10m: minutely.variables(2)!,
+				windspeed_10m: minutely.variables(2)!
 			},
 			daily: {
 				time: range(Number(daily.time()), Number(daily.timeEnd()), daily.interval()).map(
@@ -102,33 +102,117 @@
 			<LocationSearch on:location={(event) => (location = event.detail)} label="Search Location" />
 		</div>
 		<div class="col-md-3 mb-3">
-			<input type="radio" class="btn-check" name="temperatureUnit" id="celsius" value="celsius" bind:group={$units.temperature}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="temperatureUnit"
+				id="celsius"
+				value="celsius"
+				bind:group={$units.temperature}
+			/>
 			<label class="btn" for="celsius">°C</label>
-			<input type="radio" class="btn-check" name="temperatureUnit" id="fahrenheit" value="fahrenheit" bind:group={$units.temperature}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="temperatureUnit"
+				id="fahrenheit"
+				value="fahrenheit"
+				bind:group={$units.temperature}
+			/>
 			<label class="btn" for="fahrenheit">°F</label>
 		</div>
 		<div class="col-md-3 mb-3">
-			<input type="radio" class="btn-check" name="windSpeedUnit" id="kph" value="kph" bind:group={$units.windSpeed}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="windSpeedUnit"
+				id="kph"
+				value="kph"
+				bind:group={$units.windSpeed}
+			/>
 			<label class="btn" for="kph">km/h</label>
-			<input type="radio" class="btn-check" name="windSpeedUnit" id="mph" value="mph" bind:group={$units.windSpeed}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="windSpeedUnit"
+				id="mph"
+				value="mph"
+				bind:group={$units.windSpeed}
+			/>
 			<label class="btn" for="mph">mph</label>
-			<input type="radio" class="btn-check" name="windSpeedUnit" id="kn" value="kn" bind:group={$units.windSpeed}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="windSpeedUnit"
+				id="kn"
+				value="kn"
+				bind:group={$units.windSpeed}
+			/>
 			<label class="btn" for="kn">knots</label>
 		</div>
 		<div class="col-md-12 mb-3">
-			<input type="radio" class="btn-check" name="weatherModel" id="best_match" value="best_match" bind:group={weatherModel}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="weatherModel"
+				id="best_match"
+				value="best_match"
+				bind:group={weatherModel}
+			/>
 			<label class="btn" for="best_match">Best Match</label>
-			<input type="radio" class="btn-check" name="weatherModel" id="icon_seamless" value="icon_seamless" bind:group={weatherModel}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="weatherModel"
+				id="icon_seamless"
+				value="icon_seamless"
+				bind:group={weatherModel}
+			/>
 			<label class="btn" for="icon_seamless">DWD</label>
-			<input type="radio" class="btn-check" name="weatherModel" id="gfs_seamless" value="gfs_seamless" bind:group={weatherModel}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="weatherModel"
+				id="gfs_seamless"
+				value="gfs_seamless"
+				bind:group={weatherModel}
+			/>
 			<label class="btn" for="gfs_seamless">NOAA</label>
-			<input type="radio" class="btn-check" name="weatherModel" id="meteofrance_seamless" value="meteofrance_seamless" bind:group={weatherModel}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="weatherModel"
+				id="meteofrance_seamless"
+				value="meteofrance_seamless"
+				bind:group={weatherModel}
+			/>
 			<label class="btn" for="meteofrance_seamless">MeteoFrance</label>
-			<input type="radio" class="btn-check" name="weatherModel" id="ecmwf_ifs04" value="ecmwf_ifs04" bind:group={weatherModel}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="weatherModel"
+				id="ecmwf_ifs04"
+				value="ecmwf_ifs04"
+				bind:group={weatherModel}
+			/>
 			<label class="btn" for="ecmwf_ifs04">ECMWF</label>
-			<input type="radio" class="btn-check" name="weatherModel" id="jma_seamless" value="jma_seamless" bind:group={weatherModel}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="weatherModel"
+				id="jma_seamless"
+				value="jma_seamless"
+				bind:group={weatherModel}
+			/>
 			<label class="btn" for="jma_seamless">JMA</label>
-			<input type="radio" class="btn-check" name="weatherModel" id="gem_seamless" value="gem_seamless" bind:group={weatherModel}>
+			<input
+				type="radio"
+				class="btn-check"
+				name="weatherModel"
+				id="gem_seamless"
+				value="gem_seamless"
+				bind:group={weatherModel}
+			/>
 			<label class="btn" for="gem_seamless">GEM</label>
 			<!--<input type="radio" class="btn-check" name="weatherModel" id="metno_nordic" value="metno_nordic" bind:group={weatherModel}>
 			<label class="btn" for="metno_nordic">MetNo</label>-->
@@ -139,18 +223,36 @@
 	{:then weather}
 		<h2>Current weather</h2>
 		<p>Current time {weather.current.time.toISOString()}</p>
-		<p>Current temperature {convertUnit(weather.current.temperature_2m, $units.temperature)} {$units.temperature}</p>
+		<p>
+			Current temperature {convertUnit(weather.current.temperature_2m, $units.temperature)}
+			{$units.temperature}
+		</p>
 		<p>Current weather: {getWeatherCode(weather.current.weather_code)}</p>
-		<p>Current wind: {convertUnit(weather.current.windspeed_10m, $units.windSpeed)} {$units.windSpeed} {weather.current.winddirection_10m.toFixed()}°</p>
+		<p>
+			Current wind: {convertUnit(weather.current.windspeed_10m, $units.windSpeed)}
+			{$units.windSpeed}
+			{weather.current.winddirection_10m.toFixed()}°
+		</p>
 
 		<h2>Daily weather</h2>
 		{#each weather.daily.time as time, index}
 			<p>
 				{time.toISOString()}
 				{getWeatherCode(weather.daily.weather_code.values(index))}
-				Tmax={convertUnit(weather.daily.temperature_2m_max.values(index), $units.temperature)} {$units.temperature} Tmin={convertUnit(weather.daily.temperature_2m_min
-					.values(index), $units.temperature)} {$units.temperature} precip={weather.daily.precipitation_sum.values(index)?.toFixed(1)} mm wind={convertUnit(weather.daily.windspeed_10m_max
-					.values(index), $units.windSpeed)} {$units.windSpeed} gusts={convertUnit(weather.daily.windgusts_10m_max.values(index), $units.windSpeed)} {$units.windSpeed} direction={weather.daily.winddirection_10m_dominant
+				Tmax={convertUnit(weather.daily.temperature_2m_max.values(index), $units.temperature)}
+				{$units.temperature} Tmin={convertUnit(
+					weather.daily.temperature_2m_min.values(index),
+					$units.temperature
+				)}
+				{$units.temperature} precip={weather.daily.precipitation_sum.values(index)?.toFixed(1)} mm wind={convertUnit(
+					weather.daily.windspeed_10m_max.values(index),
+					$units.windSpeed
+				)}
+				{$units.windSpeed} gusts={convertUnit(
+					weather.daily.windgusts_10m_max.values(index),
+					$units.windSpeed
+				)}
+				{$units.windSpeed} direction={weather.daily.winddirection_10m_dominant
 					.values(index)
 					?.toFixed()}°
 			</p>
@@ -160,8 +262,11 @@
 		{#each weather.minutely.time as time, index}
 			<p>
 				{time.toISOString()}
-				{convertUnit(weather.minutely.temperature_2m.values(index), $units.temperature)} {$units.temperature} precip={weather.minutely.precipitation.values(index)?.toFixed(1)} mm wind={convertUnit(weather.minutely.windspeed_10m
-					.values(index), $units.windSpeed)}
+				{convertUnit(weather.minutely.temperature_2m.values(index), $units.temperature)}
+				{$units.temperature} precip={weather.minutely.precipitation.values(index)?.toFixed(1)} mm wind={convertUnit(
+					weather.minutely.windspeed_10m.values(index),
+					$units.windSpeed
+				)}
 			</p>
 		{/each}
 	{:catch error}

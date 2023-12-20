@@ -113,7 +113,7 @@
 	about climate models and how data is downscaled to 10 km resolution.
 </div>
 
-<form method="get" action="https://climate-api.open-meteo.com/v1/climate">
+<form method="get" action="https://climate-climapiv2.biovision.digital/v1/climate">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -283,7 +283,14 @@
 	<LicenseSelector requires_professional_plan={true} />
 </form>
 
-<ResultPreview {params} {defaultParameter} type="climate" action="climate" sdk_type="climate_api" useStockChart={true} />
+<ResultPreview
+	{params}
+	{defaultParameter}
+	type="climate"
+	action="climate"
+	sdk_type="climate_api"
+	useStockChart={true}
+/>
 
 <h2 id="data-sources" class="mt-5">Data Sources</h2>
 <div class="row">

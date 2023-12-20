@@ -4,24 +4,24 @@
 	import { api_key_preferences } from '$lib/stores';
 	import { urlHashStore } from '$lib/url-hash-store';
 
-	const params = urlHashStore({ 
-		name: 'Berlin', 
-		count: '10', 
-		language: 'en', 
-		format: 'json' 
+	const params = urlHashStore({
+		name: 'Berlin',
+		count: '10',
+		language: 'en',
+		format: 'json'
 	});
 
 	//const params = { name: 'Berlin', count: '10', language: 'en', format: 'json' };
-	let action = 'https://geocoding-api.open-meteo.com/v1/search?';
+	let action = 'https://geocoding-climapiv2.biovision.digital/v1/search?';
 	$: switch ($api_key_preferences.use) {
 		case 'commercial':
-			action = `https://customer-geocoding-api.open-meteo.com/v1/search?apikey=${$api_key_preferences.apikey}&`;
+			action = `https://customer-geocoding-climapiv2.biovision.digital/v1/search?apikey=${$api_key_preferences.apikey}&`;
 			break;
 		case 'self_hosted':
 			action = `${$api_key_preferences.self_host_server}/v1/search?`;
 			break;
 		default:
-			action = 'https://geocoding-api.open-meteo.com/v1/search?';
+			action = 'https://geocoding-climapiv2.biovision.digital/v1/search?';
 	}
 
 	//const paramsDefault = { ...params };
@@ -61,7 +61,7 @@
 <form
 	id="geocoding_form"
 	method="get"
-	action="https://geocoding-api.open-meteo.com/v1/search"
+	action="https://geocoding-climapiv2.biovision.digital/v1/search"
 	on:submit|preventDefault
 >
 	<div class="row">
@@ -222,8 +222,8 @@
 <div class="col-12 py-5">
 	<h2 id="api-documentation">API Documentation</h2>
 	<p>
-		The API endpoint <mark>https://geocoding-api.open-meteo.com/v1/search</mark> accepts a search term
-		and returns a list of matching locations. URL parameters are listed below:
+		The API endpoint <mark>https://geocoding-climapiv2.biovision.digital/v1/search</mark> accepts a search
+		term and returns a list of matching locations. URL parameters are listed below:
 	</p>
 	<div class="table-responsive">
 		<table class="table">
@@ -453,8 +453,8 @@
 	</div>
 
 	*Note: All IDs can be can be resolved via the API endpoint<a
-		href="https://geocoding-api.open-meteo.com/v1/get?id=2950159"
-		target="_new">https://geocoding-api.open-meteo.com/v1/get?id=2950159</a
+		href="https://geocoding-climapiv2.biovision.digital/v1/get?id=2950159"
+		target="_new">https://geocoding-climapiv2.biovision.digital/v1/get?id=2950159</a
 	>
 
 	<h3 class="mt-5">Errors</h3>

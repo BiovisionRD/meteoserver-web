@@ -122,22 +122,23 @@
 			{ name: 'relative_humidity_2m', label: 'Relative Humidity (2 m)' },
 			{ name: 'apparent_temperature', label: 'Apparent Temperature' },
 			{ name: 'is_day', label: 'Is Day or Night' }
-		],[
+		],
+		[
 			{ name: 'precipitation', label: 'Precipitation' },
 			{ name: 'rain', label: 'Rain' },
 			{ name: 'showers', label: 'Showers' },
-			{ name: 'snowfall', label: 'Snowfall' },
+			{ name: 'snowfall', label: 'Snowfall' }
 		],
 		[
 			{ name: 'weather_code', label: 'Weather code' },
 			{ name: 'cloud_cover', label: 'Cloud cover Total' },
 			{ name: 'pressure_msl', label: 'Sealevel Pressure' },
-			{ name: 'surface_pressure', label: 'Surface Pressure' },
+			{ name: 'surface_pressure', label: 'Surface Pressure' }
 		],
 		[
 			{ name: 'wind_speed_10m', label: 'Wind Speed (10 m)' },
 			{ name: 'wind_direction_10m', label: 'Wind Direction (10 m)' },
-			{ name: 'wind_gusts_10m', label: 'Wind Gusts (10 m)' },
+			{ name: 'wind_gusts_10m', label: 'Wind Gusts (10 m)' }
 		]
 	];
 
@@ -229,7 +230,7 @@
 	> if no other high resolution weather models are available.
 </div>
 
-<form method="get" action="https://api.open-meteo.com/v1/dwd-icon">
+<form method="get" action="https://climapiv2.biovision.digital/v1/dwd-icon">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -392,7 +393,11 @@
 				<small class="text-muted mt-3">(1) Europe only, (2) Central Europe only</small>
 				<div class="col-md-12 mb-3 mt-3">
 					<small class="text-muted"
-						>Note: You can further adjust the forecast time range for hourly weather variables using <mark>&forecast_hours=</mark> and <mark>&past_hours=</mark> as shown below.
+						>Note: You can further adjust the forecast time range for hourly weather variables using <mark
+							>&forecast_hours=</mark
+						>
+						and <mark>&past_hours=</mark> as shown below.
+					</small>
 				</div>
 				<div class="col-md-3">
 					<div class="form-floating mb-3">
@@ -580,7 +585,9 @@
 				</div>
 				<div class="col-md-12 mb-3">
 					<small class="text-muted"
-						>Note: You can further adjust the forecast time range for 15-minutely weather variables using <mark>&forecast_minutely_15=</mark> and <mark>&past_minutely_15=</mark> as shown below.
+						>Note: You can further adjust the forecast time range for 15-minutely weather variables
+						using <mark>&forecast_minutely_15=</mark> and <mark>&past_minutely_15=</mark> as shown below.
+					</small>
 				</div>
 				<div class="col-md-3">
 					<div class="form-floating mb-3">
@@ -642,9 +649,9 @@
 			</div>
 		{/each}
 		{#if timezoneInvalid}
-		<div class="alert alert-warning" role="alert">
-			It is recommended to select a timezone for daily data. Per default the API will use GMT+0.
-		</div>
+			<div class="alert alert-warning" role="alert">
+				It is recommended to select a timezone for daily data. Per default the API will use GMT+0.
+			</div>
 		{/if}
 	</div>
 
@@ -669,7 +676,8 @@
 		{/each}
 		<div class="col-md-12">
 			<small class="text-muted"
-				>Note: Current conditions are based on 15-minutely weather model data. Every weather variable available in hourly data, is available as current condition as well.</small
+				>Note: Current conditions are based on 15-minutely weather model data. Every weather
+				variable available in hourly data, is available as current condition as well.</small
 			>
 		</div>
 	</div>
@@ -952,11 +960,17 @@
 					<td>Per default, only 7 days are returned. Up to 10 days of forecast are possible.</td>
 				</tr>
 				<tr>
-					<th scope="row">forecast_hours<br />forecast_minutely_15<br />past_hours<br />past_minutely_15</th>
+					<th scope="row"
+						>forecast_hours<br />forecast_minutely_15<br />past_hours<br />past_minutely_15</th
+					>
 					<td>Integer (&gt;0)</td>
 					<td>No</td>
 					<td></td>
-					<td>Similar to forecast_days, the number of timesteps of hourly and 15-minutely data can controlled. Instead of using the current day as a reference, the current hour or the current 15-minute time-step is used. </td>
+					<td
+						>Similar to forecast_days, the number of timesteps of hourly and 15-minutely data can
+						controlled. Instead of using the current day as a reference, the current hour or the
+						current 15-minute time-step is used.
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">start_date<br />end_date</th>
@@ -974,7 +988,8 @@
 					<td>No</td>
 					<td />
 					<td
-						>The time interval to get weather data for hourly or 15 minutely data. Time must be specified as an ISO8601 date (e.g.
+						>The time interval to get weather data for hourly or 15 minutely data. Time must be
+						specified as an ISO8601 date (e.g.
 						<mark>2022-06-30T12:00</mark>).
 					</td>
 				</tr>
@@ -1149,7 +1164,10 @@
 					<th scope="row">sunshine_duration</th>
 					<td>Preceding hour sum</td>
 					<td>Seconds</td>
-					<td>Number of seconds of sunshine of the preceding hour per hour calculated by direct normalized irradiance exceeding 120 W/m², following the WMO definition.</td>
+					<td
+						>Number of seconds of sunshine of the preceding hour per hour calculated by direct
+						normalized irradiance exceeding 120 W/m², following the WMO definition.</td
+					>
 				</tr>
 				<tr>
 					<th scope="row">vapour_pressure_deficit</th>
@@ -1345,7 +1363,10 @@
 					<th scope="row">sunshine_duration</th>
 					<td>Preceding 15 minutes sum</td>
 					<td>Seconds</td>
-					<td>Number of seconds of sunshine of the preceding 15-minutes per hour calculated by direct normalized irradiance exceeding 120 W/m², following the WMO definition.</td>
+					<td
+						>Number of seconds of sunshine of the preceding 15-minutes per hour calculated by direct
+						normalized irradiance exceeding 120 W/m², following the WMO definition.</td
+					>
 				</tr>
 				<tr>
 					<th scope="row">lightning_potential</th>
@@ -1554,7 +1575,11 @@
 				<tr>
 					<th scope="row">sunshine_duration</th>
 					<td>seconds</td>
-					<td>The number of seconds of sunshine per day is determined by calculating direct normalized irradiance exceeding 120 W/m², following the WMO definition. Sunshine duration will consistently be less than daylight duration due to dawn and dusk.</td>
+					<td
+						>The number of seconds of sunshine per day is determined by calculating direct
+						normalized irradiance exceeding 120 W/m², following the WMO definition. Sunshine
+						duration will consistently be less than daylight duration due to dawn and dusk.</td
+					>
 				</tr>
 				<tr>
 					<th scope="row">daylight_duration</th>

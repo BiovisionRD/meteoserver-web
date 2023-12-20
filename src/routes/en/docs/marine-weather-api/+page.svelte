@@ -79,12 +79,11 @@
 	];
 
 	let models = [
+		[{ name: 'best_match', label: 'Best match', caption: 'EWAM & GWAM' }],
 		[
-			{ name: 'best_match', label: 'Best match', caption: 'EWAM & GWAM' },
-		],[
 			{ name: 'ewam', label: 'DWD EWAM', caption: '0.05° only Europe' },
 			{ name: 'gwam', label: 'DWD GWAM', caption: '0.25°' },
-			{ name: 'era5_ocean', label: 'ERA5-Ocean', caption: '0.5°, data from 1940 onwards' },
+			{ name: 'era5_ocean', label: 'ERA5-Ocean', caption: '0.5°, data from 1940 onwards' }
 		]
 	];
 </script>
@@ -98,7 +97,7 @@
 	/>
 </svelte:head>
 
-<form method="get" action="https://marine-api.open-meteo.com/v1/marine">
+<form method="get" action="https://marine-climapiv2.biovision.digital/v1/marine">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -122,7 +121,7 @@
 						role="tab"
 						aria-controls="pills-forecast_days"
 						aria-selected="true"
-						on:click={() => ($params.time_mode = 'forecast_days')}><Clock/> Forecast Length</button
+						on:click={() => ($params.time_mode = 'forecast_days')}><Clock /> Forecast Length</button
 					>
 				</li>
 				<li class="nav-item" role="presentation">
@@ -134,7 +133,7 @@
 						role="tab"
 						aria-controls="pills-time_interval"
 						on:click={() => ($params.time_mode = 'time_interval')}
-						aria-selected="true"><CalendarEvent/> Time Interval</button
+						aria-selected="true"><CalendarEvent /> Time Interval</button
 					>
 				</li>
 			</ul>
@@ -205,7 +204,7 @@
 				>
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date}/>
+							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date} />
 						</div>
 					</div>
 				</div>
@@ -236,11 +235,7 @@
 
 	<div class="row py-3 px-0">
 		<div class="accordion" id="accordionVariables">
-			<AccordionItem
-				id="models"
-				title="Wave Models"
-				count={countVariables(models, $params.models)}
-			>
+			<AccordionItem id="models" title="Wave Models" count={countVariables(models, $params.models)}>
 				{#each models as group}
 					<div class="col-md-6 mb-3">
 						{#each group as e}
@@ -261,13 +256,14 @@
 					</div>
 				{/each}
 			</AccordionItem>
-			<AccordionItem
-				id="additional-variables"
-				title="Additional Options"
-			>
+			<AccordionItem id="additional-variables" title="Additional Options">
 				<div class="col-md-12 mb-3">
 					<small class="text-muted"
-						>Note: You can further adjust the forecast time range for hourly weather variables using <mark>&forecast_hours=</mark> and <mark>&past_hours=</mark> as shown below.
+						>Note: You can further adjust the forecast time range for hourly weather variables using <mark
+							>&forecast_hours=</mark
+						>
+						and <mark>&past_hours=</mark> as shown below.
+					</small>
 				</div>
 				<div class="col-md-3">
 					<div class="form-floating mb-3">
@@ -329,9 +325,9 @@
 			</div>
 		{/each}
 		{#if timezoneInvalid}
-		<div class="alert alert-warning" role="alert">
-			It is recommended to select a timezone for daily data. Per default the API will use GMT+0.
-		</div>
+			<div class="alert alert-warning" role="alert">
+				It is recommended to select a timezone for daily data. Per default the API will use GMT+0.
+			</div>
 		{/if}
 	</div>
 
@@ -393,17 +389,21 @@
 	<LicenseSelector />
 </form>
 
-<ResultPreview {params} {defaultParameter} useStockChart type="marine" action="marine" sdk_type="marine_api"/>
+<ResultPreview
+	{params}
+	{defaultParameter}
+	useStockChart
+	type="marine"
+	action="marine"
+	sdk_type="marine_api"
+/>
 
 <h2 id="data-sources" class="mt-5">Data Sources</h2>
 <div class="row">
 	<div class="col-6">
-		<p>
-			The Marine API combines wave models from different sources.
-		</p>
+		<p>The Marine API combines wave models from different sources.</p>
 	</div>
-	<div class="col-6">
-	</div>
+	<div class="col-6"></div>
 </div>
 <div class="table-responsive">
 	<table class="table">
@@ -420,8 +420,7 @@
 		<tbody>
 			<tr>
 				<th scope="row"
-					><a
-						href="https://www.dwd.de/EN/specialusers/shipping/seegangsvorhersagesystem_en.html"
+					><a href="https://www.dwd.de/EN/specialusers/shipping/seegangsvorhersagesystem_en.html"
 						>DWD GWAM</a
 					>
 				</th>
@@ -433,8 +432,7 @@
 			</tr>
 			<tr>
 				<th scope="row"
-					><a
-						href="https://www.dwd.de/EN/specialusers/shipping/seegangsvorhersagesystem_en.html"
+					><a href="https://www.dwd.de/EN/specialusers/shipping/seegangsvorhersagesystem_en.html"
 						>DWD EWAM</a
 					>
 				</th>
@@ -570,7 +568,10 @@
 					<td>Integer (&gt;0)</td>
 					<td>No</td>
 					<td></td>
-					<td>Similar to forecast_days, the number of timesteps of hourly data can controlled. Instead of using the current day as a reference, the current hour is used. </td>
+					<td
+						>Similar to forecast_days, the number of timesteps of hourly data can controlled.
+						Instead of using the current day as a reference, the current hour is used.
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">start_date<br />end_date</th>
@@ -588,7 +589,8 @@
 					<td>No</td>
 					<td />
 					<td
-						>The time interval to get weather data for hourly data. Time must be specified as an ISO8601 date (e.g.
+						>The time interval to get weather data for hourly data. Time must be specified as an
+						ISO8601 date (e.g.
 						<mark>2022-06-30T12:00</mark>).
 					</td>
 				</tr>

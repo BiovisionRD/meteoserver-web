@@ -16,7 +16,6 @@
 	import StartEndDate from '../StartEndDate.svelte';
 	import LocationSelection from '../LocationSelection.svelte';
 
-
 	const defaultParameter = {
 		current: [],
 		hourly: [],
@@ -111,22 +110,23 @@
 			{ name: 'relative_humidity_2m', label: 'Relative Humidity (2 m)' },
 			{ name: 'apparent_temperature', label: 'Apparent Temperature' },
 			{ name: 'is_day', label: 'Is Day or Night' }
-		],[
+		],
+		[
 			{ name: 'precipitation', label: 'Precipitation' },
 			{ name: 'rain', label: 'Rain' },
 			{ name: 'showers', label: 'Showers' },
-			{ name: 'snowfall', label: 'Snowfall' },
+			{ name: 'snowfall', label: 'Snowfall' }
 		],
 		[
 			{ name: 'weather_code', label: 'Weather code' },
 			{ name: 'cloud_cover', label: 'Cloud cover Total' },
 			{ name: 'pressure_msl', label: 'Sealevel Pressure' },
-			{ name: 'surface_pressure', label: 'Surface Pressure' },
+			{ name: 'surface_pressure', label: 'Surface Pressure' }
 		],
 		[
 			{ name: 'wind_speed_10m', label: 'Wind Speed (10 m)' },
 			{ name: 'wind_direction_10m', label: 'Wind Direction (10 m)' },
-			{ name: 'wind_gusts_10m', label: 'Wind Gusts (10 m)' },
+			{ name: 'wind_gusts_10m', label: 'Wind Gusts (10 m)' }
 		]
 	];
 
@@ -140,7 +140,7 @@
 			{ name: 'sunrise', label: 'Sunrise' },
 			{ name: 'sunset', label: 'Sunset' },
 			{ name: 'daylight_duration', label: 'Daylight Duration' },
-			{ name: 'sunshine_duration', label: 'Sunshine Duration' },
+			{ name: 'sunshine_duration', label: 'Sunshine Duration' }
 		],
 		[
 			{ name: 'precipitation_sum', label: 'Precipitation Sum' },
@@ -157,8 +157,10 @@
 	];
 
 	const additionalVariables = [
-		[{ name: 'is_day', label: 'Is Day or Night' }, 
-		{ name: 'sunshine_duration', label: 'Sunshine Duration' }],
+		[
+			{ name: 'is_day', label: 'Is Day or Night' },
+			{ name: 'sunshine_duration', label: 'Sunshine Duration' }
+		],
 		[{ name: 'cape', label: 'CAPE' }]
 	];
 
@@ -191,7 +193,7 @@
 	forecasts for any location worldwide, the <a href="/en/docs">generic Weather Forecast API</a> is recommended.
 </div>
 
-<form method="get" action="https://api.open-meteo.com/v1/gem">
+<form method="get" action="https://climapiv2.biovision.digital/v1/gem">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -215,7 +217,7 @@
 						role="tab"
 						aria-controls="pills-forecast_days"
 						aria-selected="true"
-						on:click={() => ($params.time_mode = 'forecast_days')}><Clock/> Forecast Length</button
+						on:click={() => ($params.time_mode = 'forecast_days')}><Clock /> Forecast Length</button
 					>
 				</li>
 				<li class="nav-item" role="presentation">
@@ -227,7 +229,7 @@
 						role="tab"
 						aria-controls="pills-time_interval"
 						on:click={() => ($params.time_mode = 'time_interval')}
-						aria-selected="true"><CalendarEvent/> Time Interval</button
+						aria-selected="true"><CalendarEvent /> Time Interval</button
 					>
 				</li>
 			</ul>
@@ -298,7 +300,7 @@
 				>
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date}/>
+							<StartEndDate bind:start_date={$params.start_date} bind:end_date={$params.end_date} />
 						</div>
 					</div>
 				</div>
@@ -353,7 +355,11 @@
 				{/each}
 				<div class="col-md-12 mb-3">
 					<small class="text-muted"
-						>Note: You can further adjust the forecast time range for hourly weather variables using <mark>&forecast_hours=</mark> and <mark>&past_hours=</mark> as shown below.
+						>Note: You can further adjust the forecast time range for hourly weather variables using <mark
+							>&forecast_hours=</mark
+						>
+						and <mark>&past_hours=</mark> as shown below.
+					</small>
 				</div>
 				<div class="col-md-3">
 					<div class="form-floating mb-3">
@@ -513,9 +519,9 @@
 			</div>
 		{/each}
 		{#if timezoneInvalid}
-		<div class="alert alert-warning" role="alert">
-			It is recommended to select a timezone for daily data. Per default the API will use GMT+0.
-		</div>
+			<div class="alert alert-warning" role="alert">
+				It is recommended to select a timezone for daily data. Per default the API will use GMT+0.
+			</div>
 		{/if}
 	</div>
 
@@ -540,7 +546,8 @@
 		{/each}
 		<div class="col-md-12">
 			<small class="text-muted"
-				>Note: Current conditions are based on 15-minutely weather model data. Every weather variable available in hourly data, is available as current condition as well.</small
+				>Note: Current conditions are based on 15-minutely weather model data. Every weather
+				variable available in hourly data, is available as current condition as well.</small
 			>
 		</div>
 	</div>
@@ -801,8 +808,7 @@
 							>time zone database</a
 						>
 						is supported. If <mark>auto</mark> is set as a time zone, the coordinates will be automatically
-						reso For multiple coordinates, a comma separated list of timezones
-						can be specified.</td
+						reso For multiple coordinates, a comma separated list of timezones can be specified.</td
 					>
 				</tr>
 				<tr>
@@ -824,7 +830,10 @@
 					<td>Integer (&gt;0)</td>
 					<td>No</td>
 					<td></td>
-					<td>Similar to forecast_days, the number of timesteps of hourly data can controlled. Instead of using the current day as a reference, the current hour is used. </td>
+					<td
+						>Similar to forecast_days, the number of timesteps of hourly data can controlled.
+						Instead of using the current day as a reference, the current hour is used.
+					</td>
 				</tr>
 				<tr>
 					<th scope="row">start_date<br />end_date</th>
@@ -842,7 +851,8 @@
 					<td>No</td>
 					<td />
 					<td
-						>The time interval to get weather data for hourly data. Time must be specified as an ISO8601 date (e.g.
+						>The time interval to get weather data for hourly data. Time must be specified as an
+						ISO8601 date (e.g.
 						<mark>2022-06-30T12:00</mark>).
 					</td>
 				</tr>
@@ -1034,7 +1044,10 @@
 					<th scope="row">sunshine_duration</th>
 					<td>Preceding hour sum</td>
 					<td>Seconds</td>
-					<td>Number of seconds of sunshine of the preceding hour per hour calculated by direct normalized irradiance exceeding 120 W/m², following the WMO definition.</td>
+					<td
+						>Number of seconds of sunshine of the preceding hour per hour calculated by direct
+						normalized irradiance exceeding 120 W/m², following the WMO definition.</td
+					>
 				</tr>
 				<tr>
 					<th scope="row">vapour_pressure_deficit</th>
@@ -1257,7 +1270,11 @@
 				<tr>
 					<th scope="row">sunshine_duration</th>
 					<td>seconds</td>
-					<td>The number of seconds of sunshine per day is determined by calculating direct normalized irradiance exceeding 120 W/m², following the WMO definition. Sunshine duration will consistently be less than daylight duration due to dawn and dusk.</td>
+					<td
+						>The number of seconds of sunshine per day is determined by calculating direct
+						normalized irradiance exceeding 120 W/m², following the WMO definition. Sunshine
+						duration will consistently be less than daylight duration due to dawn and dusk.</td
+					>
 				</tr>
 				<tr>
 					<th scope="row">daylight_duration</th>
