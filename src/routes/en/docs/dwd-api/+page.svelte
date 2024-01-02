@@ -230,7 +230,7 @@
 	> if no other high resolution weather models are available.
 </div>
 
-<form method="get" action="https://climapiv2.biovision.digital/v1/dwd-icon">
+<form method="get" action="https://clientapis.biovision.digital/siac/climapi-open/v1/dwd-icon">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

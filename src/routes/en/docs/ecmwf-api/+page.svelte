@@ -99,7 +99,7 @@
 	>, which combines weather models up to 1 km resolution seamlessly.
 </div>
 
-<form method="get" action="https://climapiv2.biovision.digital/v1/ecmwf">
+<form method="get" action="https://clientapis.biovision.digital/siac/climapi-open/v1/ecmwf">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

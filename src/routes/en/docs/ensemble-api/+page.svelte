@@ -344,7 +344,10 @@
 	>.
 </div>
 
-<form method="get" action="https://ensemble-climapiv2.biovision.digital/v1/ensemble">
+<form
+	method="get"
+	action="https://ensemble-clientapis.biovision.digital/siac/climapi-open/v1/ensemble"
+>
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

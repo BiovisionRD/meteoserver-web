@@ -14,7 +14,7 @@ info:
 paths:
   /v1/forecast:
     servers:
-      - url: https://climapiv2.biovision.digital
+      - url: https://clientapis.biovision.digital/siac/climapi-open
     get:
       tags:
         - Weather Forecast APIs

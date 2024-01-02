@@ -158,7 +158,7 @@
 		}
 
 		// Always set format=json to fetch data
-		const url = 'https://geocoding-climapiv2.biovision.digital/v1/search';
+		const url = 'https://geocoding-clientapis.biovision.digital/siac/climapi-open/v1/search';
 		const fetchUrl = `${url}?${new URLSearchParams({ name: searchQuery })}`;
 		const result = await fetch(fetchUrl);
 

@@ -126,7 +126,7 @@
 	MET Nordic with other weather models to take advantage of hourly updates.
 </div>
 
-<form method="get" action="https://climapiv2.biovision.digital/v1/metno">
+<form method="get" action="https://clientapis.biovision.digital/siac/climapi-open/v1/metno">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

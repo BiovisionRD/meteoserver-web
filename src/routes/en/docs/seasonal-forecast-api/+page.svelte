@@ -81,7 +81,10 @@
 
 <div class="alert alert-primary" role="alert">Work in progress!</div>
 
-<form method="get" action="https://seasonal-climapiv2.biovision.digital/v1/seasonal">
+<form
+	method="get"
+	action="https://seasonal-clientapis.biovision.digital/siac/climapi-open/v1/seasonal"
+>
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

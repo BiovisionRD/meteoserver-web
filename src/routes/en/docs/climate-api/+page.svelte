@@ -113,7 +113,10 @@
 	about climate models and how data is downscaled to 10 km resolution.
 </div>
 
-<form method="get" action="https://climate-climapiv2.biovision.digital/v1/climate">
+<form
+	method="get"
+	action="https://climate-clientapis.biovision.digital/siac/climapi-open/v1/climate"
+>
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

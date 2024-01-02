@@ -20,7 +20,7 @@
 			daily:
 				'weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant'
 		};
-		const url = 'https://climapiv2.biovision.digital/v1/forecast';
+		const url = 'https://clientapis.biovision.digital/siac/climapi-open/v1/forecast';
 		const responses = await fetchWeatherApi(url, params);
 		const response = responses[0];
 		const current = response.current()!;

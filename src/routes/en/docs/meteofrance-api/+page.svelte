@@ -214,7 +214,7 @@
 	multiple local weather models for forecasts up to 16 days.
 </div>
 
-<form method="get" action="https://climapiv2.biovision.digital/v1/meteofrance">
+<form method="get" action="https://clientapis.biovision.digital/siac/climapi-open/v1/meteofrance">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
@@ -717,8 +717,7 @@
 				</tr>
 				<tr>
 					<th scope="row"
-						><a href="https://www.umr-cnrm.fr/spip.php?article120" target="_blank"
-							>Arome France</a
+						><a href="https://www.umr-cnrm.fr/spip.php?article120" target="_blank">Arome France</a
 						></th
 					>
 					<td>France</td>

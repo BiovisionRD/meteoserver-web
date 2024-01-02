@@ -122,7 +122,10 @@
 	/>
 </svelte:head>
 
-<form method="get" action="https://air-quality-climapiv2.biovision.digital/v1/air-quality">
+<form
+	method="get"
+	action="https://air-quality-clientapis.biovision.digital/siac/climapi-open/v1/air-quality"
+>
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

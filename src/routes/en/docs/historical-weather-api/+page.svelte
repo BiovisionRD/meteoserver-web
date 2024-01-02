@@ -195,7 +195,10 @@
 	>.
 </div>
 
-<form method="get" action="https://archive-climapiv2.biovision.digital/v1/archive">
+<form
+	method="get"
+	action="https://archive-clientapis.biovision.digital/siac/climapi-open/v1/archive"
+>
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

@@ -66,7 +66,7 @@
 	/>
 </svelte:head>
 
-<form method="get" action="https://flood-climapiv2.biovision.digital/v1/flood">
+<form method="get" action="https://flood-clientapis.biovision.digital/siac/climapi-open/v1/flood">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

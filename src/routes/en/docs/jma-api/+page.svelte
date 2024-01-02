@@ -171,7 +171,7 @@
 	use-cases, we recommend the <a href="/en/docs">generic Weather Forecast API</a>.
 </div>
 
-<form method="get" action="https://climapiv2.biovision.digital/v1/jma">
+<form method="get" action="https://clientapis.biovision.digital/siac/climapi-open/v1/jma">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

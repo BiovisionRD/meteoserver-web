@@ -97,7 +97,7 @@
 	/>
 </svelte:head>
 
-<form method="get" action="https://marine-climapiv2.biovision.digital/v1/marine">
+<form method="get" action="https://marine-clientapis.biovision.digital/siac/climapi-open/v1/marine">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

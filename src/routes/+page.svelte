@@ -132,8 +132,8 @@
 						<p>
 							$ curl <a
 								class="token string text-decoration-none"
-								href="https://climapiv2.biovision.digital/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
-								>"https://climapiv2.biovision.digital/v1/forecast<wbr
+								href="https://clientapis.biovision.digital/siac/climapi-open/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
+								>"https://clientapis.biovision.digital/siac/climapi-open/v1/forecast<wbr
 								/>?latitude=52.52&amp;longitude=13.41<wbr
 								/>&amp;current=temperature_2m,wind_speed_10m<wbr
 								/>&amp;hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"</a
@@ -162,8 +162,8 @@
 						<p>
 							$ curl <a
 								class="token string text-decoration-none"
-								href="https://climapiv2.biovision.digital/v1/forecast?latitude=52.52&longitude=13.41&past_days=10&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
-								>"https://climapiv2.biovision.digital/v1/forecast<wbr
+								href="https://clientapis.biovision.digital/siac/climapi-open/v1/forecast?latitude=52.52&longitude=13.41&past_days=10&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
+								>"https://clientapis.biovision.digital/siac/climapi-open/v1/forecast<wbr
 								/>?latitude=52.52&amp;longitude=13.41<wbr /><mark>&amp;past_days=10</mark><wbr
 								/>&amp;hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"</a
 							>
@@ -186,8 +186,8 @@
 						<p>
 							$ curl <a
 								class="token string text-decoration-none"
-								href="https://archive-climapiv2.biovision.digital/v1/era5?latitude=52.52&longitude=13.41&start_date=2021-01-01&end_date=2021-12-31&hourly=temperature_2m"
-								>"https://archive-climapiv2.biovision.digital/v1/era5<wbr
+								href="https://archive-clientapis.biovision.digital/siac/climapi-open/v1/era5?latitude=52.52&longitude=13.41&start_date=2021-01-01&end_date=2021-12-31&hourly=temperature_2m"
+								>"https://archive-clientapis.biovision.digital/siac/climapi-open/v1/era5<wbr
 								/>?latitude=52.52&amp;longitude=13.41<wbr /><mark
 									>&amp;start_date=2021-01-01<wbr />&amp;end_date=2021-12-31</mark
 								><wbr />&amp;hourly=temperature_2m"</a

@@ -193,7 +193,7 @@
 	forecasts for any location worldwide, the <a href="/en/docs">generic Weather Forecast API</a> is recommended.
 </div>
 
-<form method="get" action="https://climapiv2.biovision.digital/v1/gem">
+<form method="get" action="https://clientapis.biovision.digital/siac/climapi-open/v1/gem">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}

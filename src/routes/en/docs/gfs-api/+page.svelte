@@ -236,7 +236,7 @@
 	> selects the most suitable weather models automatically to ensure optimal accuracy.
 </div>
 
-<form method="get" action="https://climapiv2.biovision.digital/v1/gfs">
+<form method="get" action="https://clientapis.biovision.digital/siac/climapi-open/v1/gfs">
 	<LocationSelection
 		bind:latitude={$params.latitude}
 		bind:longitude={$params.longitude}
